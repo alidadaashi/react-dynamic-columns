@@ -37,9 +37,9 @@ export const SecondaryButton = styled(Button)`
     background-color: ${defaultTheme.secondaryColor};
     color: ${defaultTheme.primaryColor};
 `
-export const CircleButton = styled.button`
-    width: 25px;
-    height: 25px;
+export const CircleButton = styled.a`
+    width: 35px;
+    height: 35px;
     background-color: ${grey[100]};
     display: flex;
     align-items: center;
@@ -53,6 +53,9 @@ export const CircleButton = styled.button`
     transition: background-color .2s linear, color .2s linear;
     &:hover{
         background-color: ${grey[200]}
+    }
+    img{
+        max-width: 15px;
     }
 `
 

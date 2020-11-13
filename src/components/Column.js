@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import {typeScale} from "../utils"
-import {PrimaryButton,SecondaryButton,ColumnPrimaryButton, CircleButton} from './Buttons'
+import {SecondaryButton,ColumnPrimaryButton, CircleButton} from './Buttons'
+import edit from "../assets/icons/edit.svg"
+import search from "../assets/icons/search.svg"
 const ColumnWrapper = styled.div`
     width: 300px;
     height: calc(100vh - 120px);
@@ -33,9 +35,9 @@ export const Column = () => {
             <ColumnPrimaryButton/>
             <ColumnWrapper>
                 <ColumnHeader>
-                    <CircleButton> search </CircleButton>
-                    <input type="text" value="Salam"/>
-                    <CircleButton> search </CircleButton>
+                    <CircleButton> <img src={search} /></CircleButton>
+                    sutun
+                    <CircleButton> <img src={edit} /> </CircleButton>
                 </ColumnHeader>
                 text
                 <ColumnFooter>

@@ -28,6 +28,12 @@ export const GlobalStyle = createGlobalStyle`
         overflow: auto;
         margin-left:auto;
     }
+    img{
+        max-width: 100%;
+    }
+    .input{
+        width:200px;
+    }
     .d-flex{
         display: flex;
     }
