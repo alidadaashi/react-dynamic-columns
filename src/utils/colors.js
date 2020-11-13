@@ -5,7 +5,9 @@ export const primary = {
 }
 
 export const grey = {
-  100: "#f3f5f6"
+  100: "#f3f5f6",
+  200: "#e2e4e5",
+  300: "#7c7c7c"
 }
   
   export const red = {

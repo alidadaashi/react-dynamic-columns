@@ -7,7 +7,16 @@ const App = ()=> (
 <ThemeProvider theme={defaultTheme}>
     <div style={{background: defaultTheme.bodybackgroundColor}}>
         <GlobalStyle />
-        <Column/>
+        <header/>
+            <div className="d-flex">
+                <aside />
+                <div className="d-flex main">
+                    <Column/>
+                    <Column/>
+                    <Column/>
+                    <Column/>
+                </div>
+            </div>
     </div>
 </ThemeProvider>
 

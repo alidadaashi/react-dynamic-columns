@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {defaultTheme,typeScale} from '../utils'
+import {defaultTheme,typeScale,grey} from '../utils'
 const Button = styled.button`
     border-radius: 50%;
     display: flex;
@@ -8,7 +8,8 @@ const Button = styled.button`
     border: none;
     width: 35px;
     height: 35px;
-    font-size: ${typeScale.header1};
+    white-space: pre;
+    font-size: ${typeScale.header3};
     font-weight: 100;
     transition: background-color .2s linear, color .2s linear;
     cursor: pointer;
@@ -17,8 +18,17 @@ const Button = styled.button`
         background-color: ${defaultTheme.hoverBackgroundColor};
         color: #FFF;
     }
-    
 ` 
+const PrimaryButtonWrapper = styled.div`
+    width: 4px;
+    border-radius:3px;
+    height: 100%;
+    background-color: ${defaultTheme.PrimaryButtonWrapperColor};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.5rem;
+`
 export const PrimaryButton = styled(Button)`
     background-color: ${defaultTheme.primaryColor};
     color: #FFF;
@@ -27,3 +37,29 @@ export const SecondaryButton = styled(Button)`
     background-color: ${defaultTheme.secondaryColor};
     color: ${defaultTheme.primaryColor};
 `
+export const CircleButton = styled.button`
+    width: 25px;
+    height: 25px;
+    background-color: ${grey[100]};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: ${typeScale.helperText};
+    color: ${grey[300]};
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: background-color .2s linear, color .2s linear;
+    &:hover{
+        background-color: ${grey[200]}
+    }
+`
+
+export const ColumnPrimaryButton = ()=>{
+    return(
+        <PrimaryButtonWrapper>
+            <PrimaryButton> + </PrimaryButton>
+        </PrimaryButtonWrapper>
+    )
+}

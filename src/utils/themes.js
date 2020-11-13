@@ -3,6 +3,7 @@ import {primaryFont} from './typography'
 
 export const defaultTheme = {
     bodybackgroundColor: grey[100],
+    PrimaryButtonWrapperColor: grey[200],
     primaryColor: primary[200],
     secondaryColor: primary[100],
     textOnPrimary: '#FFF',
