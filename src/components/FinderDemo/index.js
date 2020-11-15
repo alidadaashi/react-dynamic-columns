@@ -2,6 +2,8 @@ import React,{Component} from "react"
 import ReactDOM from "react-dom"
 import data from "../../data"
 import Finder from "../Finder"
+import Column from '../Column'
+
 class FinderDemo extends Component {
     constructor(props){
         super(props)
@@ -26,6 +28,7 @@ class FinderDemo extends Component {
               this.setState({ value, isEnd, selectIndexs });
             }}
           />
+          
         </div>
 
                 <ul className="value-list">
@@ -39,6 +42,11 @@ class FinderDemo extends Component {
           </li>
           <li>isEndNode: {`${isEnd}`}</li>
         </ul>
+        <Column value={value}
+            data={data}
+            onChange={(value, isEnd, selectIndexs) => {
+              this.setState({ value, isEnd, selectIndexs });
+            }} />
             </div>
 
         )

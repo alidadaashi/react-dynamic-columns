@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {ThemeProvider} from 'styled-components'
-import {Column} from './components/Column'
 import {GlobalStyle, defaultTheme} from './utils'
 import FinderDemo from "./components/FinderDemo"
 const App = ()=> (
@@ -13,10 +12,6 @@ const App = ()=> (
                 <aside />
                 <div className="d-flex main">
                     <FinderDemo />
-                    <Column/>
-                    <Column/>
-                    <Column/>
-                    <Column/>
                 </div>
             </div>
     </div>
