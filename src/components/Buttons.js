@@ -1,5 +1,11 @@
 import styled from 'styled-components'
+import { connect } from "react-redux";
 import {defaultTheme,typeScale,grey} from '../utils'
+import React, { Component } from "react"
+import changeData from "../actions/changeData";
+import PropTypes from "prop-types"
+
+
 const Button = styled.button`
     border-radius: 50%;
     display: flex;
@@ -58,11 +64,33 @@ export const CircleButton = styled.a`
         max-width: 15px;
     }
 `
+class ColumnPrimaryButton extends Component{
+    render(){
+        const { setData,role,id } = this.props
 
-export const ColumnPrimaryButton = ()=>{
-    return(
+        return(
         <PrimaryButtonWrapper>
-            <PrimaryButton> + </PrimaryButton>
+            <PrimaryButton onClick={()=> console.log(id,',',role)}> + </PrimaryButton>
         </PrimaryButtonWrapper>
-    )
+        )
+    }
 }
+
+ColumnPrimaryButton.propTypes = {
+    myData: PropTypes.array.isRequired
+  }
+  const mapStateToProps = ({ myData }) => ({
+    myData,
+  });
+
+const mapDispatchToProps = dispatch => ({
+    setData() {
+      dispatch(changeData());
+    }
+  });
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ColumnPrimaryButton);
+  

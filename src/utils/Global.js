@@ -1,6 +1,8 @@
 import {createGlobalStyle} from 'styled-components'
 import {primaryFont} from './typography'
 import {normalize} from 'polished'
+import {grey} from "./colors"
+import { defaultTheme } from './themes'
 
 export const GlobalStyle = createGlobalStyle`
     ${normalize()}
@@ -26,7 +28,8 @@ export const GlobalStyle = createGlobalStyle`
         height: calc(100vh - 60px);
         max-width: calc(100vw - 200px);
         overflow: auto;
-        margin-left:auto;
+        margin-right:auto;
+        padding: 0 1rem;
     }
     img{
         max-width: 100%;
@@ -51,4 +54,34 @@ export const GlobalStyle = createGlobalStyle`
     .mr-1{
         margin-right: .25rem
     }
+    ul.columns{
+        padding-left: 0;
+        margin-bottom: auto;
+        & > li{
+            list-style-type: none;
+            border-radius: 8px;
+            background-color: ${grey[100]};
+            margin-bottom: .5rem;
+            padding: .75rem;
+            font-size: ${defaultTheme.typeScale.helperText};
+            font-weight: bold;
+            color:${grey[300]};
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color .2s linear;
+            cursor: pointer;
+            &:hover{
+                background-color: ${grey[200]}
+            }
+            &.select{
+                background-color: ${defaultTheme.primaryColor};
+                color: #FFF;
+                img{
+                    filter: grayscale(1) invert(1);
+                }
+            }
+        }
+    }
+
 `

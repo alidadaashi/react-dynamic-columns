@@ -1,5 +1,5 @@
 import {primary,grey} from './colors'
-import {primaryFont} from './typography'
+import {primaryFont,typeScale} from './typography'
 
 export const defaultTheme = {
     bodybackgroundColor: grey[100],
@@ -11,4 +11,5 @@ export const defaultTheme = {
     hoverBackgroundColor:primary[300],
     primaryFont,
     columnBackgroundColor: '#FFF',
+    typeScale
 }

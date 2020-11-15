@@ -3,19 +3,23 @@ import ReactDOM from 'react-dom'
 import {ThemeProvider} from 'styled-components'
 import {GlobalStyle, defaultTheme} from './utils'
 import FinderDemo from "./components/FinderDemo"
+import {Provider} from "react-redux"
+import store from './store'
 const App = ()=> (
-<ThemeProvider theme={defaultTheme}>
-    <div style={{background: defaultTheme.bodybackgroundColor}}>
-        <GlobalStyle />
-        <header/>
-            <div className="d-flex">
-                <aside />
-                <div className="d-flex main">
-                    <FinderDemo />
+<Provider store={store}>
+    <ThemeProvider theme={defaultTheme}>
+        <div style={{background: defaultTheme.bodybackgroundColor}}>
+            <GlobalStyle />
+            <header/>
+                <div className="d-flex">
+                    <aside />
+                    <div className="d-flex main">
+                        <FinderDemo />
+                    </div>
                 </div>
-            </div>
-    </div>
-</ThemeProvider>
+        </div>
+    </ThemeProvider>
+</Provider>
 
 )
 

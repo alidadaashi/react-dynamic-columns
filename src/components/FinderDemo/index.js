@@ -1,37 +1,36 @@
-import React,{Component} from "react"
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import data from "../../data"
 import Finder from "../Finder"
 import Column from '../Column'
+import { connect } from "react-redux";
+import changeData from "../../actions/changeData";
 
 class FinderDemo extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            selectIndexs: [],
-            value: '',
-            isEnd: true,
-            data: data
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectIndexs: [],
+      value: '',
+      isEnd: true,
+      data: data
     }
-    render(){
-        const { data, selectIndexs, value, isEnd } = this.state;
-        console.log(data)
-        return(
-            <div>
-                
-                <div className="finder-demo">
-          <Finder
-            value={value}
-            data={data}
-            onChange={(value, isEnd, selectIndexs) => {
-              this.setState({ value, isEnd, selectIndexs });
-            }}
-          />
-          
-        </div>
+  }
+  shouldComponentUpdate() {
+    console.log('props')
+    return true
 
-                <ul className="value-list">
+  }
+  render() {
+    const { data, selectIndexs, value, isEnd } = this.state;
+    const { myData, setData } = this.props
+
+    console.log(">>>>: ", myData)
+    return (
+      <div>
+
+        <ul className="value-list d-flex" style={{ justifyContent: "space-between" }}>
           <li>selectIndexs: {`[${selectIndexs.join(",")}]`}</li>
           <li>
             value：
@@ -42,15 +41,33 @@ class FinderDemo extends Component {
           </li>
           <li>isEndNode: {`${isEnd}`}</li>
         </ul>
-        <Column value={value}
-            data={data}
-            onChange={(value, isEnd, selectIndexs) => {
-              this.setState({ value, isEnd, selectIndexs });
-            }} />
-            </div>
+        <button onClick={() => setData()}>change</button>
+        <Column
+          value={value}
+          data={myData}
+          buttonRole={selectIndexs}
+          onChange={(value, isEnd, selectIndexs, data) => {
+            this.setState({ value, isEnd, selectIndexs, data });
+          }} />
+      </div>
 
-        )
-    }
+    )
+  }
 }
+FinderDemo.propTypes = {
+  myData: PropTypes.array.isRequired
+}
+const mapStateToProps = ({ myData }) => ({
+  myData,
+});
 
-export default FinderDemo;
+const mapDispatchToProps = dispatch => ({
+  setData(location) {
+    dispatch(changeData(location));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FinderDemo);

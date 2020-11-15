@@ -1,59 +1,61 @@
 const data =  [
     {
-      text: "A1",
-      value: "A1",
+      text: "A Block",
+      value: "A-Block",
       child: [
         {
-          text: "A11",
-          value: "A11",
+          text: "1. Floor",
+          value: "1-Floor",
           child: [
             {
-              text: "A111",
-              value: "A111"
+              text: "1. Room",
+              value: "1-Room"
             },
             {
-              text: "A112",
-              value: "A112"
+              text: "2. Room",
+              value: "2-Room"
             },
             {
-              text: "A113",
-              value: "A113"
+              text: "3. Room",
+              value: "3-Room"
             },
             {
-              text: "A114",
-              value: "A114"
+              text: "4. Room",
+              value: "4-Room"
             },
             {
-              text: "A115",
-              value: "A115"
+              text: "5. Room",
+              value: "5-Room"
             },
+          ]
+        },
+        {
+          text: "2. Floor",
+          value: "2-Floor",
+        },
+        {
+          text: "3. Floor",
+          value: "3-Floor",
+          child:[
             {
-              text: "ddd",
-              value: "ddd"
+              text: "ABC",
+              value: "ABC",
             }
           ]
         },
         {
-          text: "A12",
-          value: "A12"
+          text: "4. Floor",
+          value: "4-Floor",
         },
         {
-          text: "A13",
-          value: "A13"
-        },
-        {
-          text: "A14",
-          value: "A14"
-        },
-        {
-          text: "A15",
-          value: "A15"
+          text: "5. Floor",
+          value: "5-Floor",
         }
       ]
     },
     {
-      text: "B1",
-      value: "B1",
+      text: "B Block",
+      value: "B-Block",
       disable: true,
       child: [
         {
@@ -85,8 +87,8 @@ const data =  [
       ]
     },
     {
-      text: "C1",
-      value: "C1",
+      text: "C Block",
+      value: "C-Block",
       child: [
         {
           text: "C11",
