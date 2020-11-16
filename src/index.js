@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {ThemeProvider} from 'styled-components'
 import {GlobalStyle, defaultTheme} from './utils'
-import FinderDemo from "./components/FinderDemo"
+import Demo from "./components/Demo"
 import {Provider} from "react-redux"
 import store from './store'
 const App = ()=> (
@@ -14,7 +14,7 @@ const App = ()=> (
                 <div className="d-flex">
                     <aside />
                     <div className="d-flex main">
-                        <FinderDemo />
+                        <Demo />
                     </div>
                 </div>
         </div>

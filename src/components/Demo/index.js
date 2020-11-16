@@ -7,7 +7,7 @@ import Column from '../Column'
 import { connect } from "react-redux";
 import changeData from "../../actions/changeData";
 
-class FinderDemo extends Component {
+class Demo extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -18,30 +18,18 @@ class FinderDemo extends Component {
     }
   }
   shouldComponentUpdate() {
-    console.log('props')
+    // console.log('props')
     return true
 
   }
   render() {
     const { data, selectIndexs, value, isEnd } = this.state;
-    const { myData, setData } = this.props
+    const { myData } = this.props
 
-    console.log(">>>>: ", myData)
+    // console.log(">>>>: ", myData)
     return (
       <div>
 
-        <ul className="value-list d-flex" style={{ justifyContent: "space-between" }}>
-          <li>selectIndexs: {`[${selectIndexs.join(",")}]`}</li>
-          <li>
-            value：
-            <input
-              value={value}
-              onChange={e => this.setState({ value: e.target.value })}
-            />
-          </li>
-          <li>isEndNode: {`${isEnd}`}</li>
-        </ul>
-        <button onClick={() => setData()}>change</button>
         <Column
           value={value}
           data={myData}
@@ -54,20 +42,15 @@ class FinderDemo extends Component {
     )
   }
 }
-FinderDemo.propTypes = {
+Demo.propTypes = {
   myData: PropTypes.array.isRequired
 }
 const mapStateToProps = ({ myData }) => ({
   myData,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setData(location) {
-    dispatch(changeData(location));
-  }
-});
+
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FinderDemo);
+  mapStateToProps
+)(Demo);

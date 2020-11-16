@@ -1,8 +1,10 @@
 
-export default function changeData(){
+export default function changeData(where){
     return {
         type: "CHANGE_DATA",
-        payload: {
+        payload:
+        //  where
+        {
             text: "X. Room",
             value: "X-Room",
             child:[

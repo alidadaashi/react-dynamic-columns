@@ -9,7 +9,6 @@ import arrow from "../assets/icons/next.svg"
 import equal from 'fast-deep-equal';
 
 import { connect } from "react-redux";
-import changeLocation from "../actions/changeLocation";
 
 
 const ColumnWrapper = styled.div`
@@ -89,7 +88,7 @@ class FinderColumn extends Component {
     const { id, data, selectIndex,selectIndexs} = this.props;
     // console.log("id  ", id)
     // console.log("data  ", data)
-    console.log("selectIndex  ", selectIndex)
+    // console.log("selectIndex  ", selectIndex)
     return (
       <div className="d-flex ml-3 mt-4">
 
@@ -220,8 +219,7 @@ class Column extends Component {
 
   render() {
     const { columns, selectIndexs } = this.state;
-    const {  setLocation, data } = this.props
-    console.log('Data: ', data)
+    const { data } = this.props
     return (
 
 

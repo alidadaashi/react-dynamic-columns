@@ -65,12 +65,19 @@ export const CircleButton = styled.a`
     }
 `
 class ColumnPrimaryButton extends Component{
+    
     render(){
         const { setData,role,id,selectIndexs } = this.props
-
+        function addNode(){
+            let temp = []
+            for(var i=0; i<=id ; i++){
+                temp.push(parseInt(selectIndexs[i]))
+            }
+            setData(temp)
+        }
         return(
-        <PrimaryButtonWrapper>
-            <PrimaryButton onClick={()=> console.log(id,',',role,',',selectIndexs)}> + </PrimaryButton>
+        <PrimaryButtonWrapper style={ role == -1 ? { display:'none'} : {}} >
+            <PrimaryButton onClick={()=>( addNode())}> + </PrimaryButton>
         </PrimaryButtonWrapper>
         )
     }
@@ -84,8 +91,8 @@ ColumnPrimaryButton.propTypes = {
   });
 
 const mapDispatchToProps = dispatch => ({
-    setData() {
-      dispatch(changeData());
+    setData(where) {
+      dispatch(changeData(where));
     }
   });
   
