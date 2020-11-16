@@ -45,17 +45,17 @@ class FinderRow extends Component {
   }
 
   onChange() {
-    const { rowIndex, columnIndex, disable, value, hasChild, onChange } = this.props;
-    if (!disable && onChange) {
+    const { rowIndex, columnIndex, value, hasChild, onChange } = this.props;
+    if (onChange) {
       onChange(rowIndex, columnIndex, value, !hasChild);
     }
   }
 
   render() {
-    const { text, disable, hasChild, isSelect } = this.props;
+    const { text, hasChild, isSelect } = this.props;
 
     return (
-      <li className={`${hasChild && 'has-child'} ${disable && 'disable'} ${isSelect && 'select'}`} onClick={this.onChange} >
+      <li className={`${hasChild && 'has-child'} ${isSelect && 'select'}`} onClick={this.onChange} >
         {
           hasChild
             ? <>
@@ -86,7 +86,7 @@ class FinderColumn extends Component {
   }
 
   render() {
-    const { id, data, selectIndex} = this.props;
+    const { id, data, selectIndex,selectIndexs} = this.props;
     // console.log("id  ", id)
     // console.log("data  ", data)
     console.log("selectIndex  ", selectIndex)
@@ -109,7 +109,6 @@ class FinderColumn extends Component {
                 isSelect={selectIndex == i}
                 text={item.text}
                 value={item.value}
-                disable={item.disable}
                 hasChild={Array.isArray(item.child)}
                 onChange={this.onChange}
               />)
@@ -120,7 +119,7 @@ class FinderColumn extends Component {
             <SecondaryButton> + </SecondaryButton>
           </ColumnFooter>
         </ColumnWrapper>
-        <ColumnPrimaryButton id={id} role={selectIndex} />
+        <ColumnPrimaryButton selectIndexs={selectIndexs} id={id} role={selectIndex} />
       </div>
     )
   }
@@ -236,7 +235,7 @@ class Column extends Component {
 
         {
           columns.map((item, i) => (
-            <FinderColumn key={i}  id={i} data={item} selectIndex={selectIndexs[i]} onChange={this.onChange}>
+            <FinderColumn key={i}  id={i} data={item} selectIndexs={selectIndexs} selectIndex={selectIndexs[i]} onChange={this.onChange}>
             </FinderColumn>
           )
           )
@@ -267,7 +266,6 @@ Column.defaultProps = {
   dataKeys: {
     text: 'text',
     value: 'value',
-    disable: 'disable',
     child: 'child',
   },
 }

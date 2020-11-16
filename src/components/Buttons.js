@@ -66,11 +66,11 @@ export const CircleButton = styled.a`
 `
 class ColumnPrimaryButton extends Component{
     render(){
-        const { setData,role,id } = this.props
+        const { setData,role,id,selectIndexs } = this.props
 
         return(
         <PrimaryButtonWrapper>
-            <PrimaryButton onClick={()=> console.log(id,',',role)}> + </PrimaryButton>
+            <PrimaryButton onClick={()=> console.log(id,',',role,',',selectIndexs)}> + </PrimaryButton>
         </PrimaryButtonWrapper>
         )
     }

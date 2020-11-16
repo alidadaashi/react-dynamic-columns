@@ -56,7 +56,6 @@ const data =  [
     {
       text: "B Block",
       value: "B-Block",
-      disable: true,
       child: [
         {
           text: "B11",
@@ -124,7 +123,6 @@ const data =  [
         {
           text: "C12",
           value: "C12",
-          disable: true,
           child: [
             {
               text: "C121",
