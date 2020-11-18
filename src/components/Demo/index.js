@@ -29,7 +29,17 @@ class Demo extends Component {
     // console.log(">>>>: ", myData)
     return (
       <div>
-
+<ul className="value-list d-flex" style={{ justifyContent: "space-between" }}>
+          <li>selectIndexs: {`[${selectIndexs.join(",")}]`}</li>
+          <li>
+            value：
+            <input
+              value={value}
+              onChange={e => this.setState({ value: e.target.value })}
+            />
+          </li>
+          <li>isEndNode: {`${isEnd}`}</li>
+        </ul>
         <Column
           value={value}
           data={myData}

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { connect } from "react-redux";
 import {defaultTheme,typeScale,grey} from '../utils'
-import React, { Component } from "react"
+import React, { Component,useState} from "react"
 import changeData from "../actions/changeData";
 import PropTypes from "prop-types"
-
+import store from '../store'
 
 const Button = styled.button`
     border-radius: 50%;
@@ -65,21 +65,70 @@ export const CircleButton = styled.a`
     }
 `
 class ColumnPrimaryButton extends Component{
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+          newForm: false
+        };
+      }
+
+    addNode = ()=>{
+        const { setData,role,id,selectIndexs,data } = this.props
+        let myStore = store.getState().myData
+        console.log('BUTTON DATA: ', data)
+        console.log('BUTTON ROLE: ', role)
+        console.log('SELECT INDEXES: ', selectIndexs)
+        console.log('ID: ', id)
+        console.log('STORE1: ', myStore)
+        // با تابع بازگشتی هی میرم داخل آرایه وقتی به ته آرایه رسیدم عوضش میکنم اینج.ری کل استور  عوض میشه
+        let i = 1;
+        let child = myStore[selectIndexs[0]];
+        while(selectIndexs[i] != -1 && i <= selectIndexs.length -1){
+            
+                child = child.child[selectIndexs[i]]
+                
+            
+            i++;
+        }
+        console.log("CHILD", child)
+        
+        // let temp = myStore[parseInt(role)].child
+        // myStore[parseInt(role)].child = [{
+        //     text: '',
+        //     value: 'vb',
+        //     child: temp
+        // } ]
+        
+        child['child']=[{
+            text: 'vb',
+            value: 'vb',
+            child: child.child
+  
+        }]
+        
+        console.log('STORE2: ', myStore)
+
+        setData(myStore)
+    }
+
     render(){
         const { setData,role,id,selectIndexs } = this.props
-        function addNode(){
-            let temp = []
-            for(var i=0; i<=id ; i++){
-                temp.push(parseInt(selectIndexs[i]))
-            }
-            setData(temp)
+        
+        
+        if(this.state.newForm){
+            return(
+                <PrimaryButtonWrapper style={ role == -1 ? { display:'none'} : {}} >
+                    <PrimaryButton onClick={this.addNode}> + </PrimaryButton>
+                </PrimaryButtonWrapper>
+            )
         }
-        return(
-        <PrimaryButtonWrapper style={ role == -1 ? { display:'none'} : {}} >
-            <PrimaryButton onClick={()=>( addNode())}> + </PrimaryButton>
-        </PrimaryButtonWrapper>
-        )
+        else{
+            return(
+                <PrimaryButtonWrapper style={ role == -1 ? { display:'none'} : {}} >
+                    <PrimaryButton onClick={this.addNode}> + </PrimaryButton>
+                </PrimaryButtonWrapper>
+            )
+        }
     }
 }
 

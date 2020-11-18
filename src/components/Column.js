@@ -118,7 +118,7 @@ class FinderColumn extends Component {
             <SecondaryButton> + </SecondaryButton>
           </ColumnFooter>
         </ColumnWrapper>
-        <ColumnPrimaryButton selectIndexs={selectIndexs} id={id} role={selectIndex} />
+        <ColumnPrimaryButton data={data} selectIndexs={selectIndexs.map(elem => parseInt(elem))} id={parseInt(id)} role={parseInt(selectIndex)} />
       </div>
     )
   }
