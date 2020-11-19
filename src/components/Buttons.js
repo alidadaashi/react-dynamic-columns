@@ -71,6 +71,17 @@ class ColumnPrimaryButton extends Component{
           newForm: false
         };
       }
+    
+    makeid = length => {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+           result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+     }
+     
 
     addNode = ()=>{
         const { setData,role,id,selectIndexs,data } = this.props
@@ -80,28 +91,17 @@ class ColumnPrimaryButton extends Component{
         console.log('SELECT INDEXES: ', selectIndexs)
         console.log('ID: ', id)
         console.log('STORE1: ', myStore)
-        // با تابع بازگشتی هی میرم داخل آرایه وقتی به ته آرایه رسیدم عوضش میکنم اینج.ری کل استور  عوض میشه
         let i = 1;
         let child = myStore[selectIndexs[0]];
         while(selectIndexs[i] != -1 && i <= selectIndexs.length -1){
-            
-                child = child.child[selectIndexs[i]]
-                
-            
+            child = child.child[selectIndexs[i]]
             i++;
         }
         console.log("CHILD", child)
-        
-        // let temp = myStore[parseInt(role)].child
-        // myStore[parseInt(role)].child = [{
-        //     text: '',
-        //     value: 'vb',
-        //     child: temp
-        // } ]
-        
+        let tempID = this.makeid(8)
         child['child']=[{
-            text: 'vb',
-            value: 'vb',
+            text: '',
+            value: tempID,
             child: child.child
   
         }]

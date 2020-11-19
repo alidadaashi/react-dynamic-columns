@@ -29,7 +29,7 @@ class Demo extends Component {
     // console.log(">>>>: ", myData)
     return (
       <div>
-<ul className="value-list d-flex" style={{ justifyContent: "space-between" }}>
+{/* <ul className="value-list d-flex" style={{ justifyContent: "space-between" }}>
           <li>selectIndexs: {`[${selectIndexs.join(",")}]`}</li>
           <li>
             value：
@@ -39,7 +39,7 @@ class Demo extends Component {
             />
           </li>
           <li>isEndNode: {`${isEnd}`}</li>
-        </ul>
+        </ul> */}
         <Column
           value={value}
           data={myData}

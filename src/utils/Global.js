@@ -36,6 +36,8 @@ export const GlobalStyle = createGlobalStyle`
     }
     .input{
         width:200px;
+        border-radius: 4px;
+        border: 1px solid #CCC;
     }
     .d-flex{
         display: flex;
@@ -83,5 +85,10 @@ export const GlobalStyle = createGlobalStyle`
             }
         }
     }
+
+    .w-50{
+        width: 50%;
+    }
+
 
 `

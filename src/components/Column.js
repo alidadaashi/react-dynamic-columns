@@ -85,17 +85,19 @@ class FinderColumn extends Component {
   }
 
   render() {
-    const { id, data, selectIndex,selectIndexs} = this.props;
+    const { id, data, selectIndex,selectIndexs,title} = this.props;
     // console.log("id  ", id)
-    // console.log("data  ", data)
+    console.log("data  ", data)
     // console.log("selectIndex  ", selectIndex)
+    // console.log("TITLE: ", title)
     return (
       <div className="d-flex ml-3 mt-4">
 
         <ColumnWrapper>
           <ColumnHeader>
             <CircleButton> <img src={search} /></CircleButton>
-                            sutun
+                            {title && data[0].text != '' ? title.text : ''}
+                            {data[0].text == '' ? <input className="w-50" type="text" /> : ''}
                             <CircleButton> <img src={edit} /> </CircleButton>
           </ColumnHeader>
 
@@ -220,6 +222,9 @@ class Column extends Component {
   render() {
     const { columns, selectIndexs } = this.state;
     const { data } = this.props
+    // console.log("columns: ", columns)
+    // console.log("selectIndexs: ", selectIndexs)
+    // console.log("data: ", data)
     return (
 
 
@@ -233,7 +238,7 @@ class Column extends Component {
 
         {
           columns.map((item, i) => (
-            <FinderColumn key={i}  id={i} data={item} selectIndexs={selectIndexs} selectIndex={selectIndexs[i]} onChange={this.onChange}>
+            <FinderColumn key={i}  id={i} data={item} title={ i==0? {text: 'Building'} : columns[i-1][selectIndexs[i-1]]}  selectIndexs={selectIndexs} selectIndex={selectIndexs[i]} onChange={this.onChange}>
             </FinderColumn>
           )
           )
